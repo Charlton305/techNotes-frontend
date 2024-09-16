@@ -116,7 +116,7 @@ const EditNoteForm = ({ note, users }) => {
           className={`form__input form__input--text ${validTextClass}`}
           id="note-text"
           type="text"
-          autoComplete="off"
+          // autoComplete="off"
           value={text}
           onChange={onTextChanged}
         />
