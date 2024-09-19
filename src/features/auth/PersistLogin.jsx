@@ -27,7 +27,6 @@ const PersistLogin = () => {
 
     if (effectRan.current === true || process.env.NODE_ENV !== "development") { //For React strict mode
       const verifyRefreshToken = async () => {
-        console.log("Verifying refresh token")
         try {
           await refresh()
           setTrueSuccess(true)
@@ -42,10 +41,8 @@ const PersistLogin = () => {
 
   let content
   if (!persist) {
-    console.log("no persist")
     content = <Outlet />
   } else if (isLoading) { //persist: yes, token: no
-    console.log("loading")
     content = <PulseLoader color={"#FFF"} />
   } else if (isError) { //persist: yes, token: no
     console.log("error")
@@ -56,11 +53,8 @@ const PersistLogin = () => {
       </p>
     )
   } else if (isSuccess && trueSuccess) { //persist: yes, token: yes
-    console.log("success")
     content = <Outlet />
   } else if (token && isUninitialized) { //persist: yes, token: yes
-    console.log("token and uninit")
-    console.log(isUninitialized)
     content = <Outlet />
   }
 
